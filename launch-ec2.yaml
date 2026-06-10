@@ -45,8 +45,7 @@
         profile: default
         name: Auto Minecraft Server
         key_name: auto-minecraft-key
-        vpc_security_group_ids: 
-          - "{{ sg_result.group_id }}"
+        security_group: Auto Minecraft Server SG
         instance_type: t4g.small
         image_id: ami-0576ef8e344fbf536
         state: present
