@@ -24,6 +24,7 @@ sudo ./installation.sh
 ```
 
 The Bash script contains the following commands.
+
 Bash
 ```
 apt update
@@ -33,3 +34,9 @@ ansible-galaxy collection install amazon.aws
 ```
 
 These commands ensure that the local device checks and downloads the latest available versions of its software. Ansible and Amazon AWS collection are also installed for the purpose of automating the provisioning, configuration, and management of AWS resources. Boto3 is installed for meeting the requirements of AWS modules with Ansible.
+
+<h1>References</h1>
+
+Kumarasiri, D. (2025, March 9). Automating AWS EC2 Instance Provisioning with Ansible. [https://medium.com/@dhanikaa/automating-aws-ec2-instance-provisioning-with-ansible-18f57d863fee](https://medium.com/@dhanikaa/automating-aws-ec2-instance-provisioning-with-ansible-18f57d863fee)
+
+Madapparambath, G. (2021, November 2). How to provision AWS infrastructure with Ansible. [https://www.redhat.com/en/blog/ansible-provisioning-aws-cloud](https://www.redhat.com/en/blog/ansible-provisioning-aws-cloud)
