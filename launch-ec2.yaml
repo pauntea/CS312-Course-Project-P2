@@ -22,15 +22,9 @@
             ]
           }
           state: present
+        managed_policy:
+          - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
         register: iam_role
-
-    - name: Attach SSM policy
-      amazon.aws.iam_policy_attachment:
-        name: SSM-Role--ssm-attach
-        roles:
-          - SSM-Role
-        policy_arn: arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
-        state: present
 
     - name: Make instance profile
       amazon.aws.iam_instance_profile:
