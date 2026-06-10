@@ -20,7 +20,7 @@ These are required for the completion of this tutorial.
     - AWS Secret Access Key
     - AWS Session Token
 3. Ubuntu/Debian OS
-4. Installation of Python, Ansible, awscli, Boto3, Nmap, and AWS collections
+4. Installation of Python, Ansible, AWS CLI, Boto3, Nmap, and AWS collections
 5. Installation of Java and Minecraft server within the EC2 instance
 
 Note: While the installation within the given requirements is necessary, a Bash script called <b>installation.sh</b> will also be given to assist with the installation of the requirements. The tutorial covers how these requirements will be used. The installation of Java and the Minecraft server setup are also covered within the tutorial.
@@ -28,7 +28,7 @@ Note: While the installation within the given requirements is necessary, a Bash 
 <h2>Overview of Different Stages of the Pipeline</h2>
 
 1. Installation of Dependencies
-    - Ansible, awscli, AWS collections, Boto3, Python, and Nmap are installed as per the requirements.
+    - Ansible, AWS CLI, AWS collections, Boto3, Python, and Nmap are installed as per the requirements.
 
 2. Provisioning of EC2 Resources
     - Create a key pair.
@@ -69,7 +69,7 @@ sudo chmod +x installation.sh
 sudo ./installation.sh
 ```
 
-The Bash script commands ensure that the local device checks and downloads the latest available versions of its software. Ansible, awscli, and the AWS collections are also installed for the purpose of automating the provisioning, configuration, and management of AWS resources. Boto3 is installed along with Python3 for meeting the requirements of AWS modules with Ansible. Nmap will be used for connecting to the Minecraft server address.
+The Bash script commands ensure that the local device checks and downloads the latest available versions of its software. Ansible, AWS CLI, and the AWS collections are also installed for the purpose of automating the provisioning, configuration, and management of AWS resources. Boto3 is installed along with Python3 to meet the requirements of AWS modules with Ansible. Nmap will be used for connecting to the Minecraft server address.
 
 
 <h3>Part 2: Provisioning EC2 Resources</h3>
@@ -95,7 +95,7 @@ sudo chmod +x create_key.sh
 sudo ./create_key.sh
 ```
 
-This Bash script creates the key pair to be used within the EC2 instance which will allow us to connect to it through the private key.
+This Bash script creates the key pair to be used within the EC2 instance, which will allow us to connect to it through the private key.
 
 3. Launch the EC2 instance using Ansible by running the following command.
 
@@ -115,7 +115,7 @@ Bash
 ansible-playbook -i inventory.ini server.yaml
 ```
 
-This playbook installs Java and sets up the Minecraft server. It also ensures that the server will restart when the resources reboot.
+This playbook installs Java and sets up the Minecraft server. It also ensures that the server will restart when the resources are rebooted.
 
 <h3>Part 4: Checking Server Status</h3>
 
