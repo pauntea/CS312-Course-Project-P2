@@ -50,6 +50,12 @@ Bash
 aws configure
 ```
 
+Enter the appropriate values when asked.
+
+AWS Access Key ID, AWS Secret Access Key, and AWS Session Token can be found on the Learner Lab module.
+Default region name: `us-east-1`
+Default output format: `json`
+
 2. Launch the EC2 instance using Ansible by running the following command.
 
 
