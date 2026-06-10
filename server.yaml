@@ -8,7 +8,7 @@
     - name: Install Java through SSM
       command: >
         aws ssm send-command
-        --instance-ids {{ instance_id }}
+        --instance-ids {{ ec2.instances[0].instance_id }}
         --document-name AWS-RunShellScript
         --parameters '{
           "commands": [
@@ -22,7 +22,7 @@
     - name: Create the Minecraft server files and script
       command: >
         aws ssm send-command
-        --instance-ids {{ instance_id }}
+        --instance-ids {{ ec2.instances[0].instance_id }}
         --document-name AWS-RunShellScript
         --parameters '{
           "commands": [
@@ -35,7 +35,7 @@
     - name: Set up systemctl to automatically start the Minecraft service.
       command: >
         aws ssm send-command
-        --instance-ids {{ instance_id }}
+        --instance-ids {{ ec2.instances[0].instance_id }}
         --document-name AWS-RunShellScript
         --parameters '{
           "commands": [
