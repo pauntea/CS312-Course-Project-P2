@@ -9,14 +9,18 @@
       yum: 
         name: java-25-amazon-corretto-headless
     
-    - name: Make user and directories
+    - name: Make user
       user:
         name: minecraft
+    
+    - name: Make minecraft directory
       file:
         path: /opt/minecraft
         state: directory
         owner: minecraft
         group: minecraft
+
+    - name: Make server directory
       file:
         path: /opt/minecraft/server
         state: directory
@@ -29,6 +33,8 @@
         dest: /opt/minecraft/server/server.jar
         owner: minecraft
         group: minecraft
+
+    - name: Accept EULA
       copy:
         dest: /opt/minecraft/server/eula.txt
         content: "eula=true\n"
@@ -53,8 +59,12 @@
           
           [Install]
           WantedBy=multi-user.target
+    
+    - name: Reload systemd
         systemd:
           dameon_reload: true
+
+    - name: Enable minecraft service
         systemd:
           name: minecraft
           enabled: true
