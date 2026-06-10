@@ -1,5 +1,8 @@
 ---
 - name: Install Java and set up Minecraft server
+  hosts: localhost
+  connection: local
+  gather_facts: no
 
   tasks:
     - name: Install Java through SSM
