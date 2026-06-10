@@ -20,7 +20,7 @@ These are required for the completion of this tutorial.
     - AWS Secret Access Key
     - AWS Session Token
 3. Ubuntu/Debian OS
-4. Installation of python, Ansible, awscli, Boto3, Nmap, and AWS collections
+4. Installation of Python, Ansible, awscli, Boto3, Nmap, and AWS collections
 5. Installation of Java and Minecraft server within the EC2 instance
 
 Note: While the installation within the given requirements is necessary, a Bash script called <b>installation.sh</b> will also be given to assist with the installation of the requirements. The tutorial covers how these requirements will be used. The installation of Java and the Minecraft server setup are also covered within the tutorial.
@@ -53,7 +53,7 @@ Note: While the installation within the given requirements is necessary, a Bash 
 
 
 <b>Diagram of the Major Steps in the Pipeline</b>
-(pipeline-diagram.png)
+![Pipeline Diagram](pipeline-diagram.png)
 
 <h2>Tutorial</h2>
 
