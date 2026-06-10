@@ -58,6 +58,10 @@ Default output format: `json`
 
 2. Launch the EC2 instance using Ansible by running the following command.
 
+Bash
+```
+ansible-playbook launch-ec2.yaml
+```
 
 Script inside <b>launch-ec2.yaml</b>:
 ```
@@ -108,8 +112,7 @@ Script inside <b>launch-ec2.yaml</b>:
         profile: default
         name: Auto Minecraft Server
         key_name: auto-minecraft-key
-        vpc_security_group_ids: 
-          - "{{ sg_result.group_id }}"
+        security_group: Auto Minecraft Server SG
         instance_type: t4g.small
         image_id: ami-0576ef8e344fbf536
         state: present
@@ -118,9 +121,25 @@ Script inside <b>launch-ec2.yaml</b>:
           assign_public_ip: yes
 ```
 
+<h3>Part 3: Setting Up the Minecraft Server</h3>
+
+1. For the minecraft server setup, run the following command.
+
+Bash
+```
+ansible-playbook server.yaml
+```
+
+
+*The website below was used as a reference for the Minecraft server and systemctl setup script.*
+
+Link: [https://aws.amazon.com/blogs/gametech/setting-up-a-minecraft-java-server-on-amazon-ec2/](https://aws.amazon.com/blogs/gametech/setting-up-a-minecraft-java-server-on-amazon-ec2/)
+
+
 *This tutorial was made with the guide of the following resources and AI. The references were used for research and learning purposes. OpenAI was used for debugging and learning purposes. All credits go to the rightful owners.*
 
 <h1>References</h1>
+Ganger, M., & Grode, C. (2023, December 7). Setting up a Minecraft Java server on Amazon EC2. [https://aws.amazon.com/blogs/gametech/setting-up-a-minecraft-java-server-on-amazon-ec2/](https://aws.amazon.com/blogs/gametech/setting-up-a-minecraft-java-server-on-amazon-ec2/)
 
 Kumarasiri, D. (2025, March 9). Automating AWS EC2 Instance Provisioning with Ansible. [https://medium.com/@dhanikaa/automating-aws-ec2-instance-provisioning-with-ansible-18f57d863fee](https://medium.com/@dhanikaa/automating-aws-ec2-instance-provisioning-with-ansible-18f57d863fee)
 

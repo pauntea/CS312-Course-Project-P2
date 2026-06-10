@@ -1,0 +1,45 @@
+---
+- name: Install Java and set up Minecraft server
+
+  tasks:
+    - name: Install Java through SSM
+      command: >
+        aws ssm send-command
+        --instance-ids {{ instance_id }}
+        --document-name AWS-RunShellScript
+        --parameters '{
+          "commands": [
+            "sudo yum install -y java-25-amazon-corretto-headless",
+            "sudo adduser minecraft",
+            "sudo mkdir /opt/minecraft/",
+            "sudo mkdir /opt/minecraft/server/"
+          ]
+        }'
+
+    - name: Create the Minecraft server files and script
+      command: >
+        aws ssm send-command
+        --instance-ids {{ instance_id }}
+        --document-name AWS-RunShellScript
+        --parameters '{
+          "commands": [
+            "sudo wget -0 https://piston-data.mojang.com/v1/objects/97ccd4c0ed3f81bbb7bfacddd1090b0c56f9bc51/server.jar",
+            "echo eula=true > /opt/minecraft/server/eula.txt",
+            "sudo chown -R minecraft:minecraft /opt/minecraft/"
+          ]
+        }'
+
+    - name: Set up systemctl to automatically start the Minecraft service.
+      command: >
+        aws ssm send-command
+        --instance-ids {{ instance_id }}
+        --document-name AWS-RunShellScript
+        --parameters '{
+          "commands": [
+            "sudo touch minecraft.service",
+            "sudo bash -c 'printf "[Unit]\nDescription=Minecraft Server on start up\nWants=network-online.target\n\n[Service]\nUser=minecraft\nWorkingDirectory=/opt/minecraft/server\nExecStart=/usr/bin/java -Xmx1300M -Xms1300M -jar server.jar nogui\nRestart=on-failure\nRestartSec=10\nKillSignal=SIGINT\nTimeoutStopSec=60\nStandardInput=null\n\n[Install]\nWantedBy=multi-user.target\n" > minecraft.service'",
+            "sudo systemctl daemon-reload",
+            "sudo systemctl enable minecraft.service",
+            "sudo systemctl start minecraft.service"
+          ]
+        }'
