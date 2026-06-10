@@ -23,6 +23,12 @@
         state: present
       register: key_result
 
+    - name: Save EC2 key
+      copy:
+        content: "{{ key_result.key.private_key }}"
+        dest: "./auto-minecraft-key.pem"
+        mode: '0400'
+
     - name: Create Security group
       amazon.aws.ec2_security_group:
         profile: default
