@@ -173,6 +173,7 @@ aws ec2 describe-instances --filters "Name=tag:Name,Values=Auto Minecraft Server
 *This tutorial was made with the guide of the following resources and AI. The references were used for research and learning purposes. OpenAI was used for debugging and learning purposes. All credits go to the rightful owners.*
 
 <h1>References</h1>
+
 Ganger, M., & Grode, C. (2023, December 7). Setting up a Minecraft Java server on Amazon EC2. [https://aws.amazon.com/blogs/gametech/setting-up-a-minecraft-java-server-on-amazon-ec2/](https://aws.amazon.com/blogs/gametech/setting-up-a-minecraft-java-server-on-amazon-ec2/)
 
 Kumarasiri, D. (2025, March 9). Automating AWS EC2 Instance Provisioning with Ansible. [https://medium.com/@dhanikaa/automating-aws-ec2-instance-provisioning-with-ansible-18f57d863fee](https://medium.com/@dhanikaa/automating-aws-ec2-instance-provisioning-with-ansible-18f57d863fee)
