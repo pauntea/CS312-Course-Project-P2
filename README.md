@@ -20,8 +20,9 @@ These are required for the completion of this tutorial.
     - AWS Secret Access Key
     - AWS Session Token
 3. Ubuntu/Debian OS
-4. Installation of Python, Ansible, AWS CLI, Boto3, Nmap, and AWS collections
-5. Installation of Java and Minecraft server within the EC2 instance
+4. Download of given files through GitHub website or git clone
+5. Installation of Python, Ansible, AWS CLI, Boto3, Nmap, and AWS collections
+6. Installation of Java and Minecraft server within the EC2 instance
 
 Note: While the installation within the given requirements is necessary, a Bash script called <b>installation.sh</b> will also be given to assist with the installation of the requirements. The tutorial covers how these requirements will be used. The installation of Java and the Minecraft server setup are also covered within the tutorial.
 
@@ -57,7 +58,15 @@ Note: While the installation within the given requirements is necessary, a Bash 
 
 <h2>Tutorial</h2>
 
-Before starting, it must be noted that the tutorial assumes these commands and scripts will be run on an Ubuntu/Debian OS.
+Before starting, it must be noted that the tutorial assumes these commands and scripts will be run on an Ubuntu/Debian OS. The files provided must also be downloaded through the GitHub website or by using git clone. This tutorial also assumes that files being referred to are within the same directory.
+
+[https://github.com/pauntea/CS312-Course-Project-P2](https://github.com/pauntea/CS312-Course-Project-P2)
+
+For git clone, run the following command and enter the created directory.
+
+```
+git clone https://github.com/pauntea/CS312-Course-Project-P2
+```
 
 <h3>Part 1: Dependencies Installation</h3>
 
