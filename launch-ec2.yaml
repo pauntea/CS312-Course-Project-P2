@@ -34,7 +34,7 @@
             rule_desc: allow all on port 25565
       register: sg_result
 
-    - name: Launching EC2 instances
+    - name: Launching EC2 instance
       community.aws.ec2_instance:
         profile: default
         name: Auto Minecraft Server

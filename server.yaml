@@ -83,7 +83,7 @@
     
     - name: Reload systemd
       systemd:
-        dameon_reload: true
+        daemon_reload: true
 
     - name: Enable minecraft service
       systemd:
