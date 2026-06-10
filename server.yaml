@@ -1,4 +1,25 @@
 ---
+- name: Manage inventory
+  hosts: localhost
+  connection: local
+  gather_facts:no
+
+  tasks:
+    - name: Retrieve launched instance
+      community.aws.ec2_instance_info:
+        filters:
+          "tag:Name": "Auto Minecraft Server"
+          instance-state-name: running
+      register: ec2
+
+    - name: Put instance in inventory
+      add_host:
+        name: minecraft
+        groups: minecraft
+        ansible_host: "{{ ec2.instances[0].public_ip_address }}"
+        ansible_user: ec2-user
+        ansible_ssh_private_key_file: auto-minecraft-key.pem
+
 - name: Install Java and set up Minecraft server
   hosts: minecraft
   become: yes
@@ -61,11 +82,11 @@
           WantedBy=multi-user.target
     
     - name: Reload systemd
-        systemd:
-          dameon_reload: true
+      systemd:
+        dameon_reload: true
 
     - name: Enable minecraft service
-        systemd:
-          name: minecraft
-          enabled: true
-          state: started
+      systemd:
+        name: minecraft
+        enabled: true
+        state: started
