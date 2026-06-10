@@ -4,11 +4,11 @@
 
 1. What will we do?
     
-    This tutorial covers the use of Ansible to automate the setup of AWS resources for a Minecraft server.
+    This tutorial covers the use of Ansible and Bash scripts to automate the setup of AWS resources for a Minecraft server.
 
 2. How will we do it?
     
-    The automation will be done through Ansible scripts where the provisioning of EC2 resources and network setup will take place. Within the scripts, a configuration for the Minecraft server restart will also be included. That is, the server would be set to restart during the reboot of resources.
+    The initial installations will be covered by running a Bash script. The automation will be done through Ansible scripts where the provisioning of EC2 resources and network setup will take place. Within the scripts, a configuration for the Minecraft server restart will also be included. That is, the server would be set to restart during the reboot of resources.
 
 
 <h2>Tutorial</h2>
@@ -35,6 +35,11 @@ ansible-galaxy collection install amazon.aws
 ```
 
 These commands ensure that the local device checks and downloads the latest available versions of its software. Ansible and Amazon AWS collection are also installed for the purpose of automating the provisioning, configuration, and management of AWS resources. Boto3 is installed for meeting the requirements of AWS modules with Ansible.
+
+<h3>Part 2: Protecting AWS Credentials</h3>
+
+1. Utilize Ansible Vault for protecting AWS Credentials.
+
 
 <h1>References</h1>
 
