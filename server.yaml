@@ -5,16 +5,9 @@
   gather_facts: no
 
   tasks:
-    - name: Retrieve launched instance
-      community.aws.ec2_instance_info:
-        filters:
-          "tag:Name": "Auto Minecraft Server"
-          instance-state-name: running
-      register: ec2
-
     - name: Install Java
       yum: 
-        name: java-25-amazon-corretto-headless",
+        name: java-25-amazon-corretto-headless
     
     - name: Make user and directories
       user:
@@ -44,9 +37,11 @@
       copy:
         dest: /etc/systemd/system/minecraft.service
         content: |
-          "[Unit]
+          [Unit]
           Description=Minecraft Server on start up
-          Wants=network-online.target\n\n[Service]
+          Wants=network-online.target
+          
+          [Service]
           User=minecraft
           WorkingDirectory=/opt/minecraft/server
           ExecStart=/usr/bin/java -Xmx1300M -Xms1300M -jar server.jar nogui
