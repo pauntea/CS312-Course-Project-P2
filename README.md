@@ -13,6 +13,8 @@
 
 <h2>Tutorial</h2>
 
+Before starting, it must be noted that the tutorial assumes these commands and scripts will be run on an Ubuntu/Debian OS.
+
 <h3>Part 1: Dependencies Installation</h3>
 
 1. Install the dependencies using the following commands.
@@ -30,7 +32,7 @@ Bash
 apt update
 apt install python3 python3-pip python3-venv -y
 apt install ansible -y
-pip install boto3 botocore -y
+pip install boto3 botocore
 ansible-galaxy collection install amazon.aws
 ansible-galaxy collection install community.aws
 ```
