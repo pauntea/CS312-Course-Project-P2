@@ -50,5 +50,7 @@
         image_id: ami-0576ef8e344fbf536
         state: present
         region: us-east-1
+        iam_instance_profile:
+          name: LabInstanceProfile
         network:
           assign_public_ip: yes
