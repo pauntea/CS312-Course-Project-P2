@@ -5,6 +5,44 @@
   gather_facts: no
 
   tasks:
+    - name: Create IAM role for SSM
+      amazon.aws.iam_role:
+        name: SSM-Role
+        assume_role_policy_document: >
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": "ec2.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole"
+              }
+            ]
+          }
+          state: present
+        register: iam_role
+
+    - name: Attach SSM policy
+      amazon.aws.iam_policy_attachment:
+        name: SSM-Role--ssm-attach
+        roles:
+          - SSM-Role
+        policy_arn: arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        state: present
+
+    - name: Make instance profile
+      amazon.aws.iam_instance_profile:
+        name: SSM-profile
+        state: present
+      
+    - name: Bind role to instance profile
+      amazon.aws.iam_instance_profile:
+        name: SSM-profile
+        role: SSM-role
+        state: present
+
     - name: Retrieve my public IP
       uri:
         url: https://checkip.amazonaws.com
@@ -50,7 +88,5 @@
         image_id: ami-0576ef8e344fbf536
         state: present
         region: us-east-1
-        iam_instance_profile:
-          name: LabInstanceProfile
         network:
           assign_public_ip: yes
