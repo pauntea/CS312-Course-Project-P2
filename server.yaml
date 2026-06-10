@@ -5,6 +5,12 @@
   gather_facts: no
 
   tasks:
+    - name: Retrieve launched instance
+      community.aws.ec2_instance_info:
+        filters:
+          "tag:Name": "Auto Minecraft Server"
+          instance-state-name: running
+      register: ec2
     - name: Install Java through SSM
       command: >
         aws ssm send-command
