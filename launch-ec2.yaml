@@ -25,7 +25,7 @@
 
     - name: Save EC2 key
       copy:
-        content: "{{ key_result.key.private_key }}"
+        content: "{{ key_result.aws_secret_key }}"
         dest: ./auto-minecraft-key.pem
         mode: '0400'
 
