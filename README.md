@@ -96,15 +96,15 @@ Enter the appropriate values when asked.
 Default region name: `us-east-1`
 Default output format: `json`
 
-2. Create the key pair to attach to the EC2 instance with the <b>create_key.sh</b> Bash script.
+2. Create the key pair to attach to the EC2 instance with the following commands.
 
 Bash
 ```
-sudo chmod +x create_key.sh
-sudo ./create_key.sh
+aws ec2 create-key-pair --key-name auto-minecraft-key --region us-east-1 --query 'KeyMaterial' --output text > auto-minecraft-key.pem
+chmod 400 auto-minecraft-key.pem
 ```
 
-This Bash script creates the key pair to be used within the EC2 instance, which will allow us to connect to it through the private key.
+This creates the key pair to be used within the EC2 instance, which will allow us to connect to it through the private key.
 
 3. Launch the EC2 instance using Ansible by running the following command.
 
