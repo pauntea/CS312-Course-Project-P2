@@ -169,8 +169,6 @@ aws ec2 describe-instances --filters "Name=tag:Name,Values=Auto Minecraft Server
 
 3. Connect to the server by clicking on the server and clicking **“Join Server”**. 
 
-<h2>Video Demonstration</h2>
-<video src="recording.webm" width="600" controls></video>
 
 *This tutorial was made with the guide of the following resources and AI. The references were used for research and learning purposes. OpenAI was used for debugging and learning purposes. All credits go to the rightful owners.*
 
