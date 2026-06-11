@@ -180,4 +180,4 @@ Kumarasiri, D. (2025, March 9). Automating AWS EC2 Instance Provisioning with An
 
 Madapparambath, G. (2021, November 2). How to provision AWS infrastructure with Ansible. [https://www.redhat.com/en/blog/ansible-provisioning-aws-cloud](https://www.redhat.com/en/blog/ansible-provisioning-aws-cloud)
 
-OpenAI. (2026). ChatGPT (May 2026 version) [Large language model]. [https://chat.openai.com/](https://chat.openai.com/)
+OpenAI. (2026). ChatGPT (June 2026 version) [Large language model]. [https://chat.openai.com/](https://chat.openai.com/)
